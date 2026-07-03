@@ -1,15 +1,8 @@
 import Cloudflare from "cloudflare";
 import "dotenv/config";
 
-const CF_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID?.trim();
-const CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN?.trim();
-
-// 安全调试：只打印长度和掩码前缀，绝不输出 token 内容
-console.log(
-  `[debug] token len=${CF_API_TOKEN?.length ?? "undefined"}, ` +
-    `prefix=${CF_API_TOKEN ? CF_API_TOKEN.slice(0, 4) + "****" : "N/A"}, ` +
-    `accountId len=${CF_ACCOUNT_ID?.length ?? "undefined"}`
-);
+const CF_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID!;
+const CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
 const PROJECT_NAME = process.env.PROJECT_NAME || "moemail";
 const DATABASE_NAME = process.env.DATABASE_NAME || "moemail-db";
